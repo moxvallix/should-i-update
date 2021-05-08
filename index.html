@@ -1,0 +1,237 @@
+<!-- This document is based on the example document "index.html" of pivot.js. The derived parts are Copyright (c) 2012, Robert Jackson All rights reserved. and licensed under MIT as seen at https://github.com/rjackson/pivot.js. The added parts are
+distributed under the conditions of CC BY-SA 4.0 International: https://creativecommons.org/licenses/by-sa/4.0/-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="99F28FCE87E260E62EC10F84BFD23866" />
+    <title>Should I Update?</title>
+    <meta name="description" content="Whether or not to update">
+
+    <link rel="stylesheet" href="./lib/css/pivot.css" type="text/css"/>
+    <link rel="stylesheet" href="./lib/css/bulma.min.css" type="text/css"/>
+    <link rel="stylesheet" href="./lib/css/responsive.semanticui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="./lib/css/bulma-accordion.min.css" type="text/css"/>
+    <style type="text/css">
+    <!--
+    
+    .row-label-fields label {
+    padding: 2px 4px;
+    }
+    /**
+* Wrapper
+*/
+.wrapper {
+margin-right: auto;
+margin-left: auto;
+padding-right: 30px;
+padding-left: 30px; }
+@media screen and (max-width: 800px) {
+.wrapper {
+    max-width: -webkit-calc(800px - (30px));
+    max-width: calc(800px - (30px));
+    padding-right: 15px;
+    padding-left: 15px; } }
+
+/**
+* Clearfix
+*/
+.wrapper:after, .footer-col-wrapper:after {
+content: "";
+display: table;
+clear: both; }
+
+/**
+* Site header
+*/
+.site-header {
+border-top: 5px solid #424242;
+border-bottom: 1px solid #e8e8e8;
+min-height: 55.95px;
+position: relative; }
+
+.site-title {
+font-size: 26px;
+font-weight: 300;
+line-height: 54px;
+letter-spacing: -1px;
+margin-bottom: 0;
+float: left; }
+
+.site-title, .site-title:visited {
+color: #424242; }
+
+.site-nav {
+float: right;
+line-height: 54px; }
+.site-nav .nav-trigger {
+display: none; }
+.site-nav .menu-icon {
+display: none; }
+.site-nav .page-link {
+color: #111;
+line-height: 1.5; }
+.site-nav .page-link:not(:last-child) {
+margin-right: 20px; }
+@media screen and (max-width: 600px) {
+.site-nav {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    text-align: right; }
+.site-nav label[for="nav-trigger"] {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+    cursor: pointer; }
+.site-nav .menu-icon {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center; }
+.site-nav .menu-icon > svg {
+    fill: #424242; }
+.site-nav input ~ .trigger {
+    clear: both;
+    display: none; }
+.site-nav input:checked ~ .trigger {
+    display: block;
+    padding-bottom: 5px; }
+.site-nav .page-link {
+    display: block;
+    padding: 5px 10px;
+    margin-left: 20px; }
+.site-nav .page-link:not(:last-child) {
+    margin-right: 0; } }
+
+    -->	
+    </style>
+    <script type="text/javascript" src="./lib/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/pivot.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/jquery_pivot.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/linkify.min.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/linkify-string.min.js"></script>
+    <script type="text/javascript" src="./lib/javascripts/bulma-accordion.min.js"></script>
+</head>
+<body class="hero">
+<header class="site-header" role="banner">
+<div class="wrapper"><a class="site-title" rel="author" href="index.html">Should I Update?</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+        <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+        </span>
+        </label>
+    <div class="trigger"><a class="page-link" href="https://matrix.to/#/@moxvallix:matrix.org">Contact Me</a><a class="page-link" href="https://github.com/moxvallix/should-i-update">Github</a></div>
+    </nav></div>
+</header>
+<div class="hero-body">
+    <h3 class="title is-3">Should I Update?</h3>
+    <div class="content">
+        <p>List of updates and whether it's safe to update to them. Currently I am only reporting on Plasma Mobile, but other Distros are welcome.</p>
+        <p>If you would like to help keep this list up to date, or report on more distros, contact <a href="https://matrix.to/#/@moxvallix:matrix.org">Moxvallix</a></p>
+        <section class="accordions">
+        <article class="accordion is-inactive">
+            <div class="accordion-header toggle" style="background-color: lightgrey; color: black;">
+            Adjust table
+            </div>
+            <div class="accordion-body">
+            <div class="accordion-content">
+                <h4>Filter Fields</h4>
+
+                <ul class="stop-propagation">
+                <div id="filter-list"></div>
+                </ul>
+                <h4>Fields to display</h4>
+                <ul class="stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+                <div id="row-label-fields"></div>
+                </ul>
+                <span id="pivot-detail" class="content"></span>
+            </div>
+            </div>
+        </div>
+        <div id="results"></div>
+        <script>
+        document.getElementById("results").innerHTML="App list is loading...";
+        </script>
+        <noscript style="font-style: bold; background: red;">
+        <p style="padding: 10px; font-style: bold; font-color: white; background: #3da;">JavaScript is required to view this table
+        <br>
+        <br>
+        </p>
+        </noscript>
+        <br>
+        <div class="content">
+        <a class="button" href="updates.csv">Get .csv</a>
+        </div>
+
+<script type="text/javascript">
+
+// Define the structure of fields, if this is not defined then all fields will be assumed
+// to be strings.  Name must match csv header row (which must exist) in order to parse correctly.
+fields =[{name: 'Distro', type: 'string', filterable: false, columnLabelable: true},
+{name: 'Time / Date', type: 'string', filterable: true},
+{name: 'Status', type: 'string', filterable: true},
+{name: 'Info', type: 'string', filterable: false},
+];
+
+function setupPivot(input) {
+    input.callbacks = {
+    afterUpdateResults: function () {
+        $('#results > table').DataTable({responsive: true, paginate: false, scrollX: 500, class: "input", "sDom": "<'row'<'span6'l><'span6'f>>t<'row'<'span6'i><'span6'p>>"});
+    }
+    };
+    $('#pivot-demo').pivot_display('setup', input);
+};
+
+$(document).ready(function () {
+    $.ajax({
+    url: "updates.csv",
+    dataType: "text",
+    success: function (data) {
+        data = data.replace(/,/g, " ||| ");
+        console.log(data);
+        data = linkifyStr(data, {
+        format: function (value, type) {
+            return value;
+        }
+        });
+        data = data.replace(/ \|\|\| /g, ",");
+        console.log(data);
+        setupPivot({
+        csv: data,
+        fields: fields,
+        rowLabels: [
+            "Distro",
+            "Time / Date",
+            "Status",
+            "Info"
+            ]
+        })
+
+        $('.stop-propagation').click(function (event) {
+        event.stopPropagation();
+        });
+        console.log(data);
+    }
+    });
+
+    // $('#fieldExplanations').pivot_display('setup', {url:"fields.csv", fields: [{name: 'name', type: 'string', filterable: true, columnLabelable: true}, {name: 'explanation', type: 'string', filterable: true, columnLabelable: true}], rowLabels:["name",
+    // "explanation"]});
+    var accordions = bulmaAccordion.attach();
+});
+</script>
+</html>
